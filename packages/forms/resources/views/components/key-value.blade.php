@@ -18,7 +18,13 @@
                     }
 
                     this.$watch('rows', () => {
+                        if (this.rows.length <= 0) return
 
+                        this.rows.forEach(({ key, value }) => {
+                            if (!key) return
+
+                            this.value[key] = value
+                        })
                     })
                 },
 
